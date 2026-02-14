@@ -1,6 +1,12 @@
-# Diamond
-M 0 50
-L 50 0
-L 0 -50
-L -50 0
-L 0 50
+# NATO unit marker - rectangle with X (military/hostile)
+M -40 -30
+L 40 -30
+L 40 30
+L -40 30
+L -40 -30
+M -35 -25
+L 0 0
+L 35 -25
+M 35 25
+L 0 0
+L -35 25

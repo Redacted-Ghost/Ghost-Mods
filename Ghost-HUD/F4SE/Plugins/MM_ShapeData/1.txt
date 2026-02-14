@@ -1,1 +1,6 @@
-R -50 -50 100 100
+# Military diamond (locations)
+M 0 -45
+L 45 0
+L 0 45
+L -45 0
+L 0 -45
