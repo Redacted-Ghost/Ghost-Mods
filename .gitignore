@@ -1,0 +1,17 @@
+# Large binary textures (use the generator script instead)
+*.dds
+*.ba2
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
