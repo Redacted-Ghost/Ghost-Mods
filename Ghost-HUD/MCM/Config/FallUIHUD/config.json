@@ -1,0 +1,281 @@
+{
+    "modName" : "FallUIHUD",
+    "displayName" : "FallUI - HUD",
+    "minMcmVersion" : 1,
+    "pluginRequirements" : [],
+    "content" : [
+        {
+            "type" : "text",
+            "text" : "<font size='30'><p align='center'>FallUI - HUD</p></font>",
+            "html" : 1
+        },
+        {
+            "type" : "image",
+            "libName" : "FallUIHUD",
+            "className" : "M8r.View.FallUIHUDIntro",
+            "old_$fallUILanguageFile" : "FallUI HUD/Translation/MCMConfig_${LANGUAGE_CODE}.txt",
+            "$fallUILanguageFile" : "../MCM/Config/FallUIHUD/Translation/MCM_FallUIHUD_${LANGUAGE_CODE}.txt",
+            "$translateOnlyTextWith$" : false,
+            "$showLangPanelForEnglishUser" : true
+        },
+		{
+			"_comment": "Hidden settings for visibility in MCM Settings Manager",
+			"type" : "switcher",
+			"text" : "Easy mode active",
+			"valueOptions" : {
+				"sourceType" : "ModSettingBool"
+			},
+			"id" : "bLayoutEasyMode:FallUIHUD",
+			"groupCondition": 99
+		},
+		{
+			"type" : "textinput",
+			"text" : "Easy mode layout",
+			"valueOptions" : {
+				"sourceType" : "ModSettingString"
+			},
+			"id" : "sEasyModeUseLayout:FallUIHUD",
+			"groupCondition": 99
+		}
+    ],
+    "pages" : [
+        {
+            "pageDisplayName" : "Layout",
+            "content" : [
+                {
+                    "type" : "image",
+                    "libName" : "FallUIHUD",
+                    "className" : "M8r.Controller.FallUIHUD"
+                }
+            ]
+        },
+        {
+            "pageDisplayName" : "General settings",
+            "content" : [
+                {
+                    "type" : "text",
+                    "text" : "<font size='30'><p align='center'>FallUI - HUD</p></font>",
+                    "html" : 1
+                },
+                {
+                    "type" : "section",
+                    "text" : "Settings"
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "(Wide-)screen aspect ratio",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sScreenAspectRatio:FallUIHUD",
+                    "help" : "Enter your monitor aspect ratio in the common X:Y format, e.g. 16:9, 21:9 etc.",
+                    "$help" : "$helpScreenAspect"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Adjust layout to screen aspect",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bAutoAdjustHUDLayoutToAspect:FallUIHUD",
+                    "help" : "Automatically adjust the layout to given resolution",
+                    "$help" : "$helpAutoAdjustLayout"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Force load DEF_HUD layout",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bDefHudAdapterLoadConfig:FallUIHUD",
+                    "help" : "This will force to use DEF_HUD.xml. The FallUI layout will be ignored.",
+                    "$help" : "$helpForceDefHud"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Hide scrap components",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bHideScrapTags:FallUIHUD",
+                    "help" : "Hide the components which a scrap item contains",
+                    "$help" : "$helpScrapComponents"
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "Backgrounds"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Remove vanilla shader backgrounds",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bRemoveVanillaBackgrounds:FallUIHUD",
+                    "help" : "Remove the game rendered background which can cause graphical problems (especially for widescreens)",
+                    "$help" : "$helpRemoveBgs"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Add new flash backgrounds",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bAddNewBackgrounds:FallUIHUD",
+                    "help" : ""
+                }
+            ]
+        },
+        {
+            "pageDisplayName" : "Messages",
+            "content" : [
+                {
+                    "type" : "text",
+                    "text" : "<font size='30'><p align='center'>FallUI - HUD</p></font>",
+                    "html" : 1
+                },
+                {
+                    "type" : "section",
+                    "text" : "Messages"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "Max visible messages",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "min" : 1,
+                        "max" : 20,
+                        "step" : 1
+                    },
+                    "id" : "iMessagesMaxCount:FallUIHUD",
+                    "help" : "Max visible messages on the screen at the same time",
+                    "$help" : "$helpMsgMaxCnt"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "Message timeout",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingFloat",
+                        "min" : 0.1,
+                        "max" : 10,
+                        "step" : 0.1
+                    },
+                    "id" : "fMessagesFadeOutTime:FallUIHUD",
+                    "help" : "Messages will fade out after X seconds"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Message animation",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bMessagesAnimated:FallUIHUD",
+                    "help" : "Animated fade in and fade out for messages"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Use internal message buffer",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bMessagesUseInternalQueue:FallUIHUD",
+                    "help" : "This could help preventing game blocks due to too many messages.",
+                    "$help" : "$helpIntBuffer"
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "Prompt messages"
+                },
+                {
+                    "type" : "text",
+                    "text" : "<font size='16' color='#aaaaaa'>Only available if you installed the PromptMessage module.</font>",
+                    "html" : 1
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Hide \"Hold [V] to open Workshop menu\"",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bHideOpenWorkshopHint:FallUIHUD",
+                    "help" : "Hides the annoying message"
+                }
+            ]
+        },
+        {
+            "pageDisplayName" : "Rollover and quick-loot",
+            "content" : [
+                {
+                    "type" : "text",
+                    "text" : "<font size='30'><p align='center'>FallUI - HUD</p></font>",
+                    "html" : 1
+                },
+                {
+                    "type" : "section",
+                    "text" : "Rollover item display"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Allow colored icons",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bRolloverItemRemoveColor:FallUIHUD",
+                    "help" : "$helpColoredIcons"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "$AllowAutoTag",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bAllowAutoItemTagsRollover:FallUIHUD",
+                    "help" : "$AllowAutoTag_help",
+					"groupControl" : 1
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "   - $AllowUnsafeAutoTag",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bAllowAutoItemTagsRolloverUnsafe:FallUIHUD",
+                    "help" : "$AllowUnsafeAutoTag_help",
+					"groupCondition" : 1
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "Quickloot"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "Allow colored icons",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bQuickLootItemListRemoveColor:FallUIHUD",
+                    "help" : "If you use a colored IconLibrary you want to check this",
+                    "$help" : "$helpColoredIcons"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "$AllowAutoTag",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bAllowAutoItemTagsQuickloot:FallUIHUD",
+                    "help" : "$AllowAutoTag_help"
+                }
+            ]
+        }
+    ]
+}

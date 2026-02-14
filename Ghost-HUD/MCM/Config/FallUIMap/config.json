@@ -1,0 +1,577 @@
+{
+    "modName" : "FallUIMap",
+    "displayName" : "FallUI - Map",
+    "minMcmVersion" : 1,
+    "pluginRequirements" : [],
+    "content" : [
+        {
+            "type" : "text",
+            "text" : "<font size='30'><p align='center'>${FallUI_Map}</p></font>",
+            "html" : 1
+        },
+        {
+            "type" : "image",
+            "libName" : "FallUIMap",
+            "className" : "M8r.View.FallUIMapIntro",
+            "$fallUILanguageFile" : "../MCM/Config/FallUIMap/Translation/MCM_FallUIMap_${LANGUAGE_CODE}.txt",
+            "$translateOnlyTextWith$" : false,
+            "$showLangPanelForEnglishUser" : true,
+            "modName" : "FallUIMap"
+        }
+    ],
+    "pages" : [
+        {
+            "pageDisplayName" : "$Generic_settings",
+            "content" : [
+                {
+                    "type" : "section",
+                    "text" : "$Generic_settings"
+                },
+                {
+                    "id" : "bTimeSet12Format:FallUIMap",
+                    "text" : "$Time_format",
+                    "type" : "stepper",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "24h",
+                            "12h"
+                        ]
+                    },
+                    "help" : "${timeHelp}"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "${Enable_center_on_player_button} ",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bShowCenterOnPlayer:FallUIMap",
+                    "groupControl" : 1
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "    - ${Key}",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sShowCenterOnPlayerKey:FallUIMap",
+                    "groupCondition" : 1
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "$Fast_travel"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "$Confirm_fast_travel",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bConfirmFastTravel:FallUIMap"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "$Fast_travel_factor",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingFloat",
+                        "options" : [],
+                        "min" : 0.1,
+                        "max" : 10,
+                        "step" : 0.1
+                    },
+                    "id" : "fFastTravelSpeedFactor:FallUIMap",
+                    "help" : "${helpFastTravelFactor} (${Default}: 1)"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "$Game_TimeScale",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [],
+                        "min" : 1,
+                        "max" : 1000,
+                        "step" : 1
+                    },
+                    "id" : "iFastTravelTimeScale:FallUIMap",
+                    "help" : "${helpGameTimeScale} (Default: 20)"
+                }
+            ]
+        },
+        {
+            "pageDisplayName" : "$Map_and_markers",
+            "content" : [
+                {
+                    "type" : "section",
+                    "text" : "$Map"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$World_map_color",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$White_Map_texture_colors",
+                            "$Green",
+                            "$Green_light",
+                            "$Blue",
+                            "$Blue_light",
+                            "$Red",
+                            "$Red_light",
+                            "$Technical_Blue",
+                            "$Yellow",
+                            "$Orange",
+                            "$Purple",
+                            "$Pink"
+                        ]
+                    },
+                    "id" : "iWorldMapColor:FallUIMap"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Local_map_color",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$White_Map_texture_colors",
+                            "$Green",
+                            "$Green_light",
+                            "$Blue",
+                            "$Blue_light",
+                            "$Red",
+                            "$Red_light",
+                            "$Technical_Blue",
+                            "$Yellow",
+                            "$Orange",
+                            "$Purple",
+                            "$Pink"
+                        ]
+                    },
+                    "id" : "iLocalMapColor:FallUIMap"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "$Use_logarithmic_zoom",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bMapLogarithmicZoom:FallUIMap",
+                    "help" : "$helpLogarithmicZoom"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "$Start_zoom",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [],
+                        "min" : 1,
+                        "max" : 100,
+                        "step" : 5
+                    },
+                    "id" : "iMapStartZoom:FallUIMap",
+                    "help" : "$Start_zoom_help"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "$Max_zoom_out",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingFloat",
+                        "options" : [],
+                        "min" : 0.05,
+                        "max" : 0.75,
+                        "step" : 0.01
+                    },
+                    "id" : "fMapMinScale:FallUIMap",
+                    "help" : "${helpMaxZoomOut} (${Default}: 0.75)"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "$Max_zoom_in",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingFloat",
+                        "options" : [],
+                        "min" : 1,
+                        "max" : 10,
+                        "step" : 0.1
+                    },
+                    "id" : "fMapMaxScale:FallUIMap",
+                    "help" : "${helpMaxZoomIn} (${Default}: 5.0)"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "$Mouse_wheel_zoom_speed",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [],
+                        "min" : 1,
+                        "max" : 100,
+                        "step" : 1
+                    },
+                    "id" : "iMapZoomSpeedMouseWheel:FallUIMap",
+                    "help" : ""
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Map_empty_space_click_action",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$Vanilla_popup_menu",
+                            "$Setclear_marker",
+                            "$Nothing"
+                        ]
+                    },
+                    "id" : "iMapClickAction:FallUIMap",
+                    "help" : "${helpClickEmptyAction}"
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "$Map_marker"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Color_set",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$None",
+                            "$Custom_color_set",
+                            "$Colored",
+                            "$Colored_pastel"
+                        ]
+                    },
+                    "groupControl" : 1,
+                    "id" : "iMapMarkerColoration:FallUIMap",
+                    "help" : "$notePiboyFXDisabled"
+                },
+                {
+                    "type" : "text",
+                    "text" : "<font color='#AAAAAA' size='16'>${textCreateOwnColorSets}</font>",
+                    "groupCondition" : 1,
+                    "html" : 1
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "    - ${Custom_color_set_name}",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sMapMarkerCustomColorSetName:FallUIMap",
+                    "groupCondition" : 1
+                },
+                {
+                    "type" : "slider",
+                    "text" : "$Scale",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "min" : 25,
+                        "max" : 200,
+                        "step" : 5
+                    },
+                    "help" : "${helpMapMarkerScale}",
+                    "id" : "iMapMarkerScale:FallUIMap"
+                },
+                {
+                    "type" : "slider",
+                    "text" : "$Min_size",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingFloat",
+                        "min" : 0.5,
+                        "max" : 10,
+                        "step" : 0.25
+                    },
+                    "help" : "${helpMinSizeMarker} (${Default}: 2.0)",
+                    "id" : "fMapMarkerMinScale:FallUIMap"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Map_marker_click_action",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$Vanilla_popup_menu",
+                            "$Actions_popup_menu_FallUI_Map",
+                            "$Fast_travel",
+                            "$Show_on_map",
+                            "$Place_Marker"
+                        ]
+                    },
+                    "id" : "iMapLocationClickAction:FallUIMap",
+                    "help" : "${helpClickAction}."
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "$Recommended_settings_for_highres_map_mods"
+                },
+                {
+                    "type" : "text",
+                    "text" : "<font color='#AAAAAA' size='16'>2k ${map}: ${Max_zoom_out}=0.75, ${Map_marker}-${Scale}=100% (${Vanilla})\n4k ${map}: ${Max_zoom_out}=0.30, ${Map_marker}-${Scale}=125%\n8k ${map}: ${Max_zoom_out}=0.15, ${Map_marker}-${Scale}=150%\n16k ${map}: ${Max_zoom_out}=0.08, ${Map_marker}-${Scale}=175%</font>",
+                    "html" : 1
+                }
+            ]
+        },
+        {
+            "pageDisplayName" : "$Lists",
+            "content" : [
+                {
+                    "type" : "section",
+                    "text" : "$Lists"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "$Enable_list_of_locations",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bShowListLocations:FallUIMap",
+                    "groupControl" : 1
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "    - ${Key}",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sShowListLocationsKey:FallUIMap",
+                    "groupCondition" : 1
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "$Enable_list_of_workshops",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bShowListWorkshops:FallUIMap",
+                    "groupControl" : 2
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "    - ${Key}",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sShowListWorkshopsKey:FallUIMap",
+                    "groupCondition" : 2
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "$Show_travel_time",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bShowTravelTime:FallUIMap"
+                },
+                {
+                    "type" : "switcher",
+                    "text" : "$Show_arrival_time",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bShowArrivalTime:FallUIMap"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Locations_list_click_action",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$Actions_popup_menu",
+                            "$Fast_travel",
+                            "$Show_on_map",
+                            "$Place_Marker"
+                        ]
+                    },
+                    "id" : "iListStandardAction:FallUIMap",
+                    "help" : ""
+                },
+                {
+                    "text" : "$Enable_search_feature",
+                    "type" : "switcher",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingBool"
+                    },
+                    "id" : "bListSearchEnabled:FallUIMap",
+                    "help" : "${helpSearch}",
+                    "groupControl" : 3
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "    - ${Key}",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sListSearchKey:FallUIMap",
+                    "groupCondition" : 3
+                }
+            ]
+        },
+        {
+            "pageDisplayName" : "$Favorites",
+            "content" : [
+                {
+                    "type" : "section",
+                    "text" : "$Favorites"
+                },
+                {
+                    "type" : "text",
+                    "text" : "${textFavs1}\n${textFavs2}",
+                    "html" : 1
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "${Favorite} 1"
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "$Marker_search_text",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sFavsFav1SearchText:FallUIMap"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Button_action",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$Show_actions_menu",
+                            "$Fast_travel",
+                            "$Show_on_map",
+                            "$Place_Marker"
+                        ]
+                    },
+                    "id" : "iFavsFav1Action:FallUIMap"
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "${Favorite} 2"
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "$Marker_search_text",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sFavsFav2SearchText:FallUIMap"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Button_action",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$Show_actions_menu",
+                            "$Fast_travel",
+                            "$Show_on_map",
+                            "$Place_Marker"
+                        ]
+                    },
+                    "id" : "iFavsFav2Action:FallUIMap"
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "${Favorite} 3"
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "$Marker_search_text",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sFavsFav3SearchText:FallUIMap"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Button_action",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$Show_actions_menu",
+                            "$Fast_travel",
+                            "$Show_on_map",
+                            "$Place_Marker"
+                        ]
+                    },
+                    "id" : "iFavsFav3Action:FallUIMap"
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "${Favorite} 4"
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "$Marker_search_text",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sFavsFav4SearchText:FallUIMap"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Button_action",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$Show_actions_menu",
+                            "$Fast_travel",
+                            "$Show_on_map",
+                            "$Place_Marker"
+                        ]
+                    },
+                    "id" : "iFavsFav4Action:FallUIMap"
+                },
+                {
+                    "type" : "spacer"
+                },
+                {
+                    "type" : "section",
+                    "text" : "${Favorite} 5"
+                },
+                {
+                    "type" : "textinput",
+                    "text" : "$Marker_search_text",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingString"
+                    },
+                    "id" : "sFavsFav5SearchText:FallUIMap"
+                },
+                {
+                    "type" : "dropdown",
+                    "text" : "$Button_action",
+                    "valueOptions" : {
+                        "sourceType" : "ModSettingInt",
+                        "options" : [
+                            "$Show_actions_menu",
+                            "$Fast_travel",
+                            "$Show_on_map",
+                            "$Place_Marker"
+                        ]
+                    },
+                    "id" : "iFavsFav5Action:FallUIMap"
+                }
+            ]
+        }
+    ]
+}

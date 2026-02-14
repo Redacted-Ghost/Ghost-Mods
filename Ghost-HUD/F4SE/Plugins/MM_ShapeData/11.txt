@@ -1,0 +1,4 @@
+S EmptySymbols.AddSymbolE
+#I testimage.dds
+#F Components/VaultBoys/SPECIAL/Charisma.swf
+E 99

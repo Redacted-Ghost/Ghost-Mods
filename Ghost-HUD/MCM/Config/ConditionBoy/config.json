@@ -1,0 +1,200 @@
+{
+  "modName": "ConditionBoy",
+  "displayName": "Condition Boy",
+  "minMcmVersion": 2,
+  "pluginRequirements": ["ConditionBoy.esp"],
+  "content": [
+    {
+      "text": "Condition Boy Configuration",
+      "align": "center",
+      "type": "text"
+    },
+	{
+	  "id": "iCharacterType:Main",
+	  "text": "Character Type",
+	  "type": "dropdown",
+	  "help": "",
+	  "valueOptions": {
+		"sourceType": "ModSettingInt",
+		"options": [
+		  "Vault Boy",
+		  "Vault Girl"
+		]
+	  }
+	},
+	{
+      "text": "Position",
+      "type": "section"
+    },
+	{
+	  "id": "iDisplayRatio:Main",
+	  "text": "Display Ratio",
+	  "type": "dropdown",
+	  "help": "Choose your display ratio. 16:9, 21:9, 32:9 are supported, but 32:9 is not tested.",
+	  "valueOptions": {
+		"sourceType": "ModSettingInt",
+		"options": [
+		  "16:9",
+		  "21:9",
+		  "32:9"
+		]
+	  }
+	},
+	{
+	  "id": "iAnchor:Main",
+	  "text": "Anchor",
+	  "type": "dropdown",
+	  "help": "Choose the section of your screen you wish Condition Boy to appear.",
+	  "valueOptions": {
+		"sourceType": "ModSettingInt",
+		"options": [
+		  "Left-Top",
+		  "Right-Top",
+		  "Right-Bottom",
+		  "Left-Bottom"
+		]
+	  }
+	},
+	{
+	  "id": "iPosX:Main",
+	  "text": "X",
+	  "type": "slider",
+	  "help": "X translation.",
+	  "valueOptions": {
+		"sourceType": "ModSettingInt",
+		"min": -800,
+		"max": 800,
+		"step": 1
+	  }
+	},
+	{
+	  "id": "iPosY:Main",
+	  "text": "Y",
+	  "type": "slider",
+	  "help": "Y translation.",
+	  "valueOptions": {
+		"sourceType": "ModSettingInt",
+		"min": -500,
+		"max": 500,
+		"step": 1
+	  }
+	},
+	{
+      "text": "Visual",
+      "type": "section"
+    },
+	{
+	  "id": "fAlpha:Main",
+	  "text": "Alpha",
+	  "type": "slider",
+	  "help": "0:Transparent - 1:Opaque.",
+	  "valueOptions": {
+		"sourceType": "ModSettingFloat",
+		"min": 0,
+		"max": 1,
+		"step": 0.01
+	  }
+	},
+	{
+	  "id": "fScale:Main",
+	  "text": "Scale",
+	  "type": "slider",
+	  "help": "The size of Condition Boy.",
+	  "valueOptions": {
+		"sourceType": "ModSettingFloat",
+		"min": 0,
+		"max": 2,
+		"step": 0.01
+	  }
+	},
+	{
+      "text": "Parts Colors",
+      "type": "section"
+    },
+	{
+	  "id": "sGoodConditionColor:Main",
+      "text": "Good Condition",
+      "type": "textinput",
+	  "valueOptions": {
+		"sourceType": "ModSettingString"
+	  }
+    },
+	{
+	  "id": "sMiddleConditionColor:Main",
+      "text": "Middle Condition",
+      "type": "textinput",
+	  "valueOptions": {
+		"sourceType": "ModSettingString"
+	  }
+    },
+	{
+	  "id": "sPoorConditionColor:Main",
+      "text": "Poor Condition",
+      "type": "textinput",
+	  "valueOptions": {
+		"sourceType": "ModSettingString"
+	  }
+    },
+	{
+      "text": "Text Visuals",
+      "type": "section"
+    },
+	{
+	  "id": "sTextGoodConditionColor:Main",
+      "text": "Good Condition",
+      "type": "textinput",
+	  "valueOptions": {
+		"sourceType": "ModSettingString"
+	  }
+    },
+	{
+	  "id": "sTextMiddleConditionColor:Main",
+      "text": "Middle Condition",
+      "type": "textinput",
+	  "valueOptions": {
+		"sourceType": "ModSettingString"
+	  }
+    },
+	{
+	  "id": "sTextPoorConditionColor:Main",
+      "text": "Bad Condition",
+      "type": "textinput",
+	  "valueOptions": {
+		"sourceType": "ModSettingString"
+	  }
+    },
+	{
+	  "id": "sTextBackgroundColor:Main",
+      "text": "Background Color",
+      "type": "textinput",
+	  "valueOptions": {
+		"sourceType": "ModSettingString"
+	  }
+    },
+	{
+	  "id": "fTextAlpha:Main",
+	  "text": "Alpha",
+	  "type": "slider",
+	  "help": "Transparency of the text.",
+	  "valueOptions": {
+		"sourceType": "ModSettingFloat",
+		"min": 0,
+		"max": 1,
+		"step": 0.01
+	  }
+	},
+	{
+	  "id": "fTextBackgroundAlpha:Main",
+	  "text": "Background Alpha",
+	  "type": "slider",
+	  "help": "Transparency of the text background.",
+	  "valueOptions": {
+		"sourceType": "ModSettingFloat",
+		"min": 0,
+		"max": 1,
+		"step": 0.01
+	  }
+	}
+  ],
+  "pages": []
+}
